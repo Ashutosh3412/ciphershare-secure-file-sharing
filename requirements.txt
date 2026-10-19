@@ -1,0 +1,2 @@
+streamlit==1.66.0
+cryptography==50.0.2
