@@ -1,8 +1,4 @@
-# CipherShare — Secure File Sharing Using AES and RSA
-
-![Python 3.10+](https://img.shields.io/badge/Python%203.10%2B-3776AB?style=flat-square&logo=python&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) ![AES-256-GCM](https://img.shields.io/badge/AES--256--GCM-1F2937?style=flat-square) ![RSA-OAEP](https://img.shields.io/badge/RSA--OAEP-1F2937?style=flat-square) ![License MIT](https://img.shields.io/badge/License%20MIT-16A34A?style=flat-square)
-
-> Hybrid-encryption file sharing: **AES-256-GCM** encrypts the file, **RSA-OAEP (SHA-256)** wraps the key, and only the intended recipient can open the package.
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg"><img alt="CipherShare — secure file sharing using AES-256-GCM and RSA-OAEP" src="assets/banner-light.svg" width="100%"></picture>
 
 ```text
 Sender:    file ──AES-256-GCM──▶ ciphertext      AES key ──RSA-OAEP(recipient public key)──▶ wrapped key
