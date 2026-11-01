@@ -1,5 +1,15 @@
 # CipherShare — Secure File Sharing Using AES and RSA
 
+![Python 3.10+](https://img.shields.io/badge/Python%203.10%2B-3776AB?style=flat-square&logo=python&logoColor=white) ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white) ![AES-256-GCM](https://img.shields.io/badge/AES--256--GCM-1F2937?style=flat-square) ![RSA-OAEP](https://img.shields.io/badge/RSA--OAEP-1F2937?style=flat-square) ![License MIT](https://img.shields.io/badge/License%20MIT-16A34A?style=flat-square)
+
+> Hybrid-encryption file sharing: **AES-256-GCM** encrypts the file, **RSA-OAEP (SHA-256)** wraps the key, and only the intended recipient can open the package.
+
+```text
+Sender:    file ──AES-256-GCM──▶ ciphertext      AES key ──RSA-OAEP(recipient public key)──▶ wrapped key
+           └──────────────── bundled into a .securepkg ────────────────┘
+Recipient: wrapped key ──RSA private key──▶ AES key ──AES-GCM verify + decrypt──▶ original file
+```
+
 CipherShare is an academic **Cryptography and Network Security** project that demonstrates secure file sharing through hybrid encryption. It uses **AES-256-GCM** to encrypt file contents and **RSA-OAEP with SHA-256** to protect the AES key for the intended recipient.
 
 The application is built with Python and Streamlit and provides a guided interface for key generation, file encryption, recipient-side decryption, and basic security testing.
@@ -48,11 +58,9 @@ The dependencies are listed in `requirements.txt`.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR-USERNAME/ciphershare-secure-file-sharing.git
+git clone https://github.com/Ashutosh3412/ciphershare-secure-file-sharing.git
 cd ciphershare-secure-file-sharing
 ```
-
-Replace `YOUR-USERNAME` with your GitHub username and adjust the repository URL if you chose a different name.
 
 ### 2. Create and activate a virtual environment
 
@@ -91,7 +99,6 @@ If your main application file has a different name, update the command according
 
 ## Project structure
 
-A typical project layout is:
 
 ```text
 ciphershare-secure-file-sharing/
@@ -99,11 +106,12 @@ ciphershare-secure-file-sharing/
 ├── crypto_utils.py     # RSA/AES cryptographic functions
 ├── requirements.txt    # Python dependencies
 ├── README.md           # Project documentation
+├── LICENSE             # MIT license
 ├── .gitignore          # Excludes environments and sensitive artifacts
-└── tests/              # Optional automated tests
+└── .devcontainer/      # Dev container / Codespaces configuration
 ```
 
-Your local folder may also contain a virtual environment and test files. Do not commit private keys, passphrases, or generated encrypted packages.
+Keys, encrypted packages and sample files generated while testing are excluded by `.gitignore`. Do not commit private keys, passphrases, or generated encrypted packages.
 
 ## Testing checklist
 
@@ -129,22 +137,6 @@ For a recovery check, compare the original and recovered files byte-for-byte or 
 - The local Streamlit prototype does not, by itself, provide multi-user authentication, verified identity, audited key management, secure remote deployment, rate limiting, or production-grade access controls.
 - The application and its dependencies have not been independently security-audited. Do not use it to protect critical or highly sensitive information.
 
-## Suggested `.gitignore`
-
-```gitignore
-.venv/
-.venv2/
-__pycache__/
-*.py[cod]
-*.pem
-*.securepkg
-.env
-.streamlit/secrets.toml
-Final Demo test/
-```
-
-Review the repository before pushing. `.gitignore` does not remove sensitive files that were already committed. If a private key or secret was committed, remove it from the repository history as appropriate and rotate it.
-
 ## Academic context
 
 **Subject:** Cryptography and Network Security  
@@ -162,4 +154,4 @@ Review the repository before pushing. `.gitignore` does not remove sensitive fil
 
 ## License
 
-No license is specified yet. Add a `LICENSE` file before inviting others to reuse or redistribute this project.
+Released under the [MIT License](LICENSE).
