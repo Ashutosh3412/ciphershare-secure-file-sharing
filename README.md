@@ -1,5 +1,7 @@
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg"><img alt="CipherShare — secure file sharing using AES-256-GCM and RSA-OAEP" src="assets/banner-light.svg" width="100%"></picture>
 
+<p align="center"><a href="https://ciphershare-secure-file-sharing-mzkon4zdhbsdyjab57pswv.streamlit.app/"><strong>Open CipherShare Live Demo ↗</strong></a></p>
+
 ```text
 Sender:    file ──AES-256-GCM──▶ ciphertext      AES key ──RSA-OAEP(recipient public key)──▶ wrapped key
            └──────────────── bundled into a .securepkg ────────────────┘
